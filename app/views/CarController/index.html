@@ -1,0 +1,44 @@
+#{extends 'main.html' /} #{set title:'Home' /}
+<div>
+	<form action="@{CarController.addCar()}" method="GET">
+		<pre>
+		Colour : 		<input type="text" name="Colour" /><br />
+		Gear :      		<input type="text" name="Gear" /><br />
+		Manufacturer : 		<input type="text" name="Manufacturer" /><br />
+		Price :     		<input type="text" name="price" /><br />
+		Seat : 			<input type="text" name="Seat" /><br />
+		Model : 		<input type="text" name="Model" /><br />
+		<input type="submit" value="Add Car!" />
+		</pre>
+	</form>
+
+	<div id="tab">
+		<table id="list" cellpadding="20px" border="1px">
+			<thead>
+				<tr>
+					<td>S.No</td>
+					<td>Manufacturer Name</td>
+					<td>Model</td>
+					<td>Gear</td>
+					<td>Price</td>
+					<td>Seat</td>
+					<td>Colour</td>
+				</tr>
+			</thead>
+
+			<tbody>
+				#{list items, as:'item'}
+				<tr>
+					<td>${item._id}</td>
+					<td>${item.Manufacturer}</td>
+					<td>${item.Model}</td>
+					<td>${item.Gear}</td>
+					<td>${item.price}</td>
+					<td>${item.Seat}</td>
+					<td>${item.Colour}</td>
+				</tr>
+				#{/list}
+			</tbody>
+		</table>
+	</div>
+</div>

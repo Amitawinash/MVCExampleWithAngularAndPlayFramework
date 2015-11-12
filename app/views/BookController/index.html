@@ -1,0 +1,41 @@
+#{extends 'main.html' /} #{set title:'Home' /}
+<div>
+	<form action="@{BookController.addBook()}" method="GET">
+		<pre>
+		Book Name : 		<input type="text" name="bookName" /><br />
+		ISBN :      		<input type="text" name="isbn" /><br />
+		Publication Year : 	<input type="text" name="publicationYear" /><br />
+		Price :     		<input type="text" name="price" /><br />
+		Author Name : 		<input type="text" name="authorName" /><br />
+		<input type="submit" value="Add Book!" />
+		</pre>
+	</form>
+
+	<div id="tab">
+		<table id="list" cellpadding="20px" border="1px">
+			<thead>
+				<tr>
+					<td>S.No</td>
+					<td>Book Name</td>
+					<td>ISBN</td>
+					<td>Publication Year</td>
+					<td>Price</td>
+					<td>Author Name</td>
+				</tr>
+			</thead>
+
+			<tbody>
+				#{list items, as:'item'}
+				<tr>
+					<td>${item._id}</td>
+					<td>${item.bookName}</td>
+					<td>${item.isbn}</td>
+					<td>${item.publicationYear}</td>
+					<td>${item.price}</td>
+					<td>${item.authorName}</td>
+				</tr>
+				#{/list}
+			</tbody>
+		</table>
+	</div>
+</div>
